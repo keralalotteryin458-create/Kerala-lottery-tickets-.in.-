@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kerala State Lottery - Mega Jackpot</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0b0e14;
+            --card-bg: #141820;
+            --border-color: #232936;
+            --accent-gold: #f59e0b;
+            --accent-yellow: #fbbf24;
+            --whatsapp-green: #25d366;
+            --text-white: #ffffff;
+            --text-gray: #94a3b8;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-white);
+            padding-bottom: 90px;
+        }
+
+        /* HEADER */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background-color: rgba(11, 14, 20, 0.95);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo-box {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-yellow));
+            color: #000;
+            font-weight: 800;
+            font-size: 20px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-text h2 {
+            font-size: 15px;
+            font-weight: 800;
+            line-height: 1.1;
+        }
+
+        .logo-text span {
+            font-size: 10px;
+            color: var(--accent-gold);
+            letter-spacing: 1.5px;
+            font-weight: 600;
+        }
+
+        .btn-header-wa {
+            background-color: rgba(37, 211, 102, 0.15);
+            color: var(--whatsapp-green);
+            border: 1px solid var(--whatsapp-green);
+            padding: 6px 12px;
+            border-radius: 30px;
+            font-size: 11px;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 15px;
+        }
+
+        /* HERO CARD */
+        .badge-live {
+            background: rgba(245, 158, 11, 0.15);
+            border: 1px solid var(--accent-gold);
+            color: var(--accent-gold);
+            font-size: 11px;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 20px;
+            display: inline-block;
+            margin: 10px auto;
+        }
+
+        .hero-title {
+            text-align: center;
+            font-size: 26px;
+            font-weight: 900;
+            margin-bottom: 5px;
+        }
+
+        .hero-title span {
+            color: var(--accent-gold);
+            display: block;
+        }
+
+        .hero-sub {
+            text-align: center;
+            font-size: 12px;
+            color: var(--text-gray);
+            margin-bottom: 20px;
+        }
+
+        .jackpot-circle {
+            width: 210px;
+            height: 210px;
+            margin: 0 auto 20px auto;
+            border-radius: 50%;
+            border: 3px solid var(--accent-gold);
+            box-shadow: 0 0 25px rgba(245, 158, 11, 0.25);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(circle, rgba(245,158,11,0.1) 0%, rgba(20,24,32,1) 80%);
+        }
+
+        .jackpot-circle h1 {
+            font-size: 36px;
+            font-weight: 900;
+            color: #fff;
+            line-height: 1;
+        }
+
+        /* TIMER & PROGRESS */
+        .timer-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 12px;
+            text-align: center;
+            margin-bottom: 12px;
+        }
+
+        .timer-title {
+            font-size: 11px;
+            color: var(--accent-gold);
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .timer-digits {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            font-weight: 800;
+        }
+
+        .progress-box {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 12px;
+            margin-bottom: 20px;
+        }
+
+        .progress-text {
+            font-size: 12px;
+            color: #ef4444;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .progress-bar {
+            height: 6px;
+            background: #232936;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            width: 78%;
+            height: 100%;
+            background: linear-gradient(90deg, #f59e0b, #ef4444);
+        }
+
+        /* TICKETS GRID */
+        .section-title {
+            text-align: center;
+            font-size: 18px;
+            font-weight: 800;
+        }
+
+        .section-sub {
+            text-align: center;
+            font-size: 11px;
+            color: var(--text-gray);
+            margin-bottom: 12px;
+        }
+
+        .custom-input-box {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 10px;
+            margin-bottom: 15px;
+        }
+
+        .custom-input-box label {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--accent-gold);
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .custom-input-group {
+            display: flex;
+            gap: 8px;
+        }
+
+        .custom-input-group input {
+            flex: 1;
+            background: #0b0e14;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 8px 12px;
+            color: #fff;
+            font-weight: 700;
+            font-size: 15px;
+            outline: none;
+        }
+
+        .custom-input-group button {
+            background: var(--accent-gold);
+            color: #000;
+            border: none;
+            padding: 0 15px;
+            border-radius: 6px;
+            font-weight: 800;
+            cursor: pointer;
+        }
+
+        .ticket-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-bottom: 25px;
+            min-height: 150px;
+        }
+
+        .ticket-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 12px 10px;
+            text-align: center;
+            cursor: pointer;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .ticket-card.selected {
+            border-color: var(--accent-gold);
+            background: rgba(245, 158, 11, 0.12);
+        }
+
+        .ticket-card.selected::after {
+            content: "✓";
+            position: absolute;
+            top: -5px; right: -5px;
+            background: var(--accent-gold);
+            color: #000;
+            width: 20px; height: 20px;
+            border-radius: 50%;
+            font-size: 11px;
+            font-weight: 900;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .ticket-name {
+            font-size: 10px;
+            font-weight: 800;
+            color: var(--accent-gold);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .ticket-number {
+            font-size: 16px;
+            font-weight: 800;
+            color: #ffffff;
+            letter-spacing: 1px;
+        }
+
+        .ticket-price {
+            background: rgba(245, 158, 11, 0.15);
+            color: var(--accent-yellow);
+            border: 1px solid rgba(245, 158, 11, 0.4);
+            padding: 2px 10px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 800;
+        }
+
+        /* BOTTOM BAR */
+        .bottom-bar {
+            position: fixed;
+            bottom: 0; left: 0; right: 0;
+            background: #141820;
+            border-top: 1px solid var(--border-color);
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 90;
+        }
+
+        .btn-proceed {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: #000;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 800;
+            font-size: 13px;
+            cursor: pointer;
+        }
+
+        /* MODAL */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(4px);
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+            padding: 15px;
+        }
+
+        .modal-content {
+            background: #141820;
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            width: 100%;
+            max-width: 400px;
+            padding: 20px;
+            position: relative;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px; right: 15px;
+            font-size: 22px;
+            cursor: pointer;
+            color: var(--text-gray);
+        }
+
+        .upi-box {
+            background: #0b0e14;
+            border: 1px dashed var(--accent-gold);
+            border-radius: 8px;
+            padding: 10px;
+            text-align: center;
+            margin: 12px 0;
+        }
+
+        .utr-field input {
+            width: 100%;
+            background: #0b0e14;
+            border: 1px solid var(--accent-gold);
+            border-radius: 6px;
+            padding: 10px;
+            color: #fff;
+            font-size: 14px;
+            font-weight: 700;
+            outline: none;
+            margin-top: 5px;
+        }
+
+        .btn-wa-submit {
+            background: var(--whatsapp-green);
+            color: #fff;
+            border: none;
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 800;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+        .footer-info {
+            text-align: center;
+            padding: 15px;
+            font-size: 11px;
+            color: var(--text-gray);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-box">
+            <div class="logo-icon">K</div>
+            <div class="logo-text">
+                <h2>KERALA LOTTERY</h2>
+                <span>TICKETS</span>
+            </div>
+        </div>
+        <a href="https://wa.me/916287138637" class="btn-header-wa" target="_blank">
+            💬 WhatsApp Chat
+        </a>
+    </header>
+
+    <div class="container">
+        <div style="text-align: center;">
+            <div class="badge-live">● LIVE DRAW</div>
+            <h1 class="hero-title">KERALA <span>MEGA JACKPOT</span></h1>
+            <p class="hero-sub">Your Luck, Our Trust. Daily Live Draws with Trusted Results</p>
+        </div>
+
+        <div class="jackpot-circle">
+            <span style="font-size: 24px;">👑</span>
+            <p style="font-size: 10px; color: var(--accent-gold); font-weight: 700;">FIRST PRIZE</p>
+            <h1>₹25</h1>
+            <p style="font-size: 13px; color: #fff; font-weight: 700;">CRORE</p>
+            <div style="color: var(--accent-gold); font-size: 12px;">★★★★★</div>
+        </div>
+
+        <div class="timer-card">
+            <div class="timer-title">⏱ DRAW CLOSES IN</div>
+            <div class="timer-digits">
+                <div>09 <span style="font-size: 9px; color: var(--text-gray); display: block;">HOURS</span></div>
+                <div>47 <span style="font-size: 9px; color: var(--text-gray); display: block;">MINS</span></div>
+                <div>24 <span style="font-size: 9px; color: var(--text-gray); display: block;">SECS</span></div>
+            </div>
+        </div>
+
+        <div class="progress-box">
+            <div class="progress-text">🔥 Only 78 VIP Tickets Remaining!</div>
+            <div class="progress-bar"><div class="progress-fill"></div></div>
+        </div>
+
+        <div class="section-title">SELECT YOUR LUCKY TICKETS</div>
+        <div class="section-sub">Tap ticket to select • Individual Rates & Series Included</div>
+
+        <!-- CUSTOM TICKET ENTRY -->
+        <div class="custom-input-box">
+            <label>Apna Custom Ticket Number Add Karein (6-Digits):</label>
+            <div class="custom-input-group">
+                <input type="text" id="customTicketInput" placeholder="000000" maxlength="6" oninput="this.value=this.value.replace(/[^0-9]/g,'')">
+                <button onclick="addCustomTicket()">+ Add</button>
+            </div>
+        </div>
+
+        <!-- TICKETS LIST CONTAINER -->
+        <div class="ticket-grid" id="ticketGrid"></div>
+
+        <div class="footer-info">
+            <p><strong>CONTACT US</strong></p>
+            <p>📞 +91 6287138637 | ✉️ keralalottery@gmail.com</p>
+            <p>© 2026 Kerala Lottery Tickets. All Rights Reserved.</p>
+        </div>
+    </div>
+
+    <!-- BOTTOM BAR -->
+    <div class="bottom-bar">
+        <div>
+            <p style="font-size: 10px; color: var(--text-gray);"><span id="ticketCountText">0</span> TICKETS SELECTED</p>
+            <h3 id="totalAmountText" style="font-size: 16px; color: var(--accent-gold);">TOTAL: ₹0</h3>
+        </div>
+        <button class="btn-proceed" onclick="openPaymentModal()">PROCEED TO PAY</button>
+    </div>
+
+    <!-- PAYMENT MODAL -->
+    <div id="paymentModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closePaymentModal()">&times;</span>
+            <div style="font-size: 16px; font-weight: 800; color: var(--accent-gold); text-align: center;">UPI PAYMENT</div>
+            <p style="text-align: center; font-size: 11px; color: var(--text-gray);">Pay using any UPI App & enter 12-Digit UTR</p>
+
+            <div class="upi-box">
+                <span style="font-size: 10px; color: var(--text-gray);">UPI ID:</span>
+                <div style="font-size: 13px; font-weight: 800; color: #fff;">keralalotteryin41254@axl</div>
+            </div>
+
+            <div style="text-align: center; margin: 10px 0;">
+                <img id="qrCodeImg" src="" alt="UPI QR Code" style="width: 150px; height: 150px; background: #fff; padding: 5px; border-radius: 6px;">
+            </div>
+
+            <div class="utr-field">
+                <label style="font-size: 10px; color: var(--text-gray); font-weight: 700;">ENTER 12-DIGIT UTR / REFERENCE NO:*</label>
+                <input type="text" id="utrInput" placeholder="e.g. 423456789012" maxlength="12" oninput="this.value=this.value.replace(/[^0-9]/g,'')">
+            </div>
+
+            <button class="btn-wa-submit" onclick="submitToWhatsApp()">
+                📲 Submit & Send Screenshot on WhatsApp
+            </button>
+        </div>
+    </div>
+
+    <script>
+        var UPI_ID = "keralalotteryin41254@axl";
+        var WHATSAPP_NUMBER = "916287138637";
+
+        var availableTickets = [
+            { id: "1", name: "WIN-WIN (W-750)", series: "WA", number: "100001", price: 40 },
+            { id: "2", name: "NIRMAL (NR-380)", series: "NR", number: "100002", price: 50 },
+            { id: "3", name: "FIFTY-FIFTY (FF-90)", series: "FF", number: "100003", price: 50 },
+            { id: "4", name: "SUMMER BUMPER", series: "SB", number: "100004", price: 100 },
+            { id: "5", name: "AKSHAYA (AK-620)", series: "AK", number: "100005", price: 40 },
+            { id: "6", name: "MEGA BUMPER", series: "MB", number: "100006", price: 200 },
+            { id: "7", name: "STHREE SAKTHI", series: "SS", number: "100007", price: 40 },
+            { id: "8", name: "XMAS BUMPER", series: "XB", number: "100008", price: 300 }
+        ];
+
+        var selectedTicketIds = [];
+
+        function renderGrid() {
+            var grid = document.getElementById('ticketGrid');
+            if (!grid) return;
+            grid.innerHTML = '';
+            
+            for (var i = 0; i < availableTickets.length; i++) {
+                var ticket = availableTickets[i];
+                var isSelected = selectedTicketIds.indexOf(ticket.id) !== -1;
+                
+                var card = document.createElement('div');
+                card.className = "ticket-card" + (isSelected ? " selected" : "");
+                
+                card.onclick = (function(id) {
+                    return function() { toggleTicket(id); };
+                })(ticket.id);
+                
+                card.innerHTML = '<div class="ticket-name">' + ticket.name + '</div>' +
+                                 '<div class="ticket-number">' + ticket.series + ' ' + ticket.number + '</div>' +
+                                 '<div class="ticket-price">₹' + ticket.price + '</div>';
+                
+                grid.appendChild(card);
+            }
+            updateBottomBar();
+        }
+
+        function toggleTicket(id) {
+            var index = selectedTicketIds.indexOf(id);
+            if (index !== -1) {
+                selectedTicketIds.splice(index, 1);
+            } else {
+                selectedTicketIds.push(id);
+            }
+            renderGrid();
+        }
+
+        function addCustomTicket() {
+            var input = document.getElementById('customTicketInput');
+            var val = input.value.trim();
+            if (val.length !== 6) {
+                alert("Kripya 6-digit ticket number enter karein!");
+                return;
+            }
+            
+            var newId = new Date().getTime().toString();
+            var newTicket = {
+                id: newId,
+                name: "SPECIAL SELECTION",
+                series: "KL",
+                number: val,
+                price: 50
+            };
+
+            availableTickets.unshift(newTicket);
+            selectedTicketIds.push(newId);
+            input.value = '';
+            renderGrid();
+        }
+
+        function updateBottomBar() {
+            var totalAmount = 0;
+            for (var i = 0; i < availableTickets.length; i++) {
+                if (selectedTicketIds.indexOf(availableTickets[i].id) !== -1) {
+                    totalAmount += availableTickets[i].price;
+                }
+            }
+
+            document.getElementById('ticketCountText').innerText = selectedTicketIds.length;
+            document.getElementById('totalAmountText').innerText = 'TOTAL: ₹' + totalAmount;
+        }
+
+        function openPaymentModal() {
+            if (selectedTicketIds.length === 0) {
+                alert("Kripya kam se kam 1 ticket select karein!");
+                return;
+            }
+
+            var total = 0;
+            for (var i = 0; i < availableTickets.length; i++) {
+                if (selectedTicketIds.indexOf(availableTickets[i].id) !== -1) {
+                    total += availableTickets[i].price;
+                }
+            }
+
+            var upiUrl = "upi://pay?pa=" + UPI_ID + "&pn=KeralaLottery&am=" + total + "&cu=INR";
+            document.getElementById('qrCodeImg').src = "https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=" + encodeURIComponent(upiUrl);
+            document.getElementById('paymentModal').style.display = 'flex';
+        }
+
+        function closePaymentModal() {
+            document.getElementById('paymentModal').style.display = 'none';
+        }
+
+        function submitToWhatsApp() {
+            var utr = document.getElementById('utrInput').value.trim();
+            if (utr.length !== 12) {
+                alert("Kripya valid 12-digit UTR/Ref number enter karein!");
+                return;
+            }
+
+            var selectedObjects = [];
+            var total = 0;
+            for (var i = 0; i < availableTickets.length; i++) {
+                if (selectedTicketIds.indexOf(availableTickets[i].id) !== -1) {
+                    selectedObjects.push(availableTickets[i]);
+                    total += availableTickets[i].price;
+                }
+            }
+
+            var msg = "*🎟️ KERALA LOTTERY TICKET BOOKING 🎟️*\n\n";
+            msg += "*Selected Tickets details:*\n";
+            for (var j = 0; j < selectedObjects.length; j++) {
+                var t = selectedObjects[j];
+                msg += (j + 1) + ". " + t.name + " - " + t.series + " " + t.number + " (₹" + t.price + ")\n";
+            }
+            msg += "\n*Total Amount:* ₹" + total + "\n";
+            msg += "*Paid to UPI:* " + UPI_ID + "\n";
+            msg += "*UTR / Ref No:* " + utr + "\n\n";
+            msg += "📌 *Note:* Maine payment kar di hai, payment screenshot attach kar raha hoon. Ticket issue karein!";
+
+            var waLink = "https://api.whatsapp.com/send?phone=" + WHATSAPP_NUMBER + "&text=" + encodeURIComponent(msg);
+            window.open(waLink, '_blank');
+        }
+
+        // Guaranteed Multi-layer Execution on Page Load
+        renderGrid();
+        document.addEventListener("DOMContentLoaded", renderGrid);
+        window.onload = renderGrid;
+    </script>
+</body>
+</html>
